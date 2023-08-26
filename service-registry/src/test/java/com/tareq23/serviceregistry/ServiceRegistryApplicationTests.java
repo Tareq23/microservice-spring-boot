@@ -1,10 +1,10 @@
-package com.tareq23.rolebaseauth;
+package com.tareq23.serviceregistry;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RoleBaseAuthenticationApplicationTests {
+class ServiceRegistryApplicationTests {
 
 	@Test
 	void contextLoads() {
