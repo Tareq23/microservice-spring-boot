@@ -1,16 +1,18 @@
-package com.departmentservice;
+package com.tareq23.employeeservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 
+
+
 @SpringBootApplication
 @EnableDiscoveryClient
-public class DepartmentServiceApplication {
+public class EmployeeServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DepartmentServiceApplication.class, args);
+		SpringApplication.run(EmployeeServiceApplication.class, args);
 	}
 
 }
