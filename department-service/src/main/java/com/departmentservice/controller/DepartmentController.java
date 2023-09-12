@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.departmentservice.client.EmployeeClient;
 import com.departmentservice.model.Department;
 import com.departmentservice.repository.DepartmentRepository;
 
@@ -24,6 +25,10 @@ public class DepartmentController {
 	
 	@Autowired
 	private DepartmentRepository departmentRepository;
+	
+	
+	@Autowired
+	private EmployeeClient employeeClient;
 	
 	@PostMapping
 	public Department addDepartment(@RequestBody Department department)
@@ -43,6 +48,18 @@ public class DepartmentController {
 	public List<Department> getAll(){
 		LOGGER.info("Department All");
 		return departmentRepository.findAll();
+	}
+	
+	
+	@GetMapping("/with-employee")
+	public List<Department> findAllWithEmployees()
+	{
+		LOGGER.info("Department with employee");
+		
+		List<Department> departments = departmentRepository.findAll();
+		
+		departments.forEach(department -> department.setEmployees(employeeClient.findByDepartment(department.getId())));
+		return departments;
 	}
 
 }
