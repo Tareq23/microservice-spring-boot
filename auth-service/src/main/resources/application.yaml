@@ -1,0 +1,16 @@
+
+
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+  jpa:
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:mysql://localhost:3306/microservice.auth?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: 12x34y56z
+  application:
+    name: auth-service
+  config:
+    import: "optional:configserver:http://localhost:8081"
